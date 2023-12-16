@@ -1,0 +1,7 @@
+package com.nt.prime;
+
+import jakarta.servlet.jsp.tagext.TagSupport;
+
+public class FindPrime extends TagSupport {
+
+}

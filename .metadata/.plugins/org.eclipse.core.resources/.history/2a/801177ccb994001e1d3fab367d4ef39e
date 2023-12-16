@@ -1,0 +1,38 @@
+package com.nt.prime;
+
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.tagext.TagSupport;
+
+public class Display extends TagSupport{
+		private int size;
+		private String font;
+		public void setSize(int size) {
+			this.size = size;
+		}
+		public void setFont(String font) {
+			this.font = font;
+		}
+		@Override
+		public int doStartTag() throws JspException {
+			System.out.println("Display.doStartTag()");
+			try {
+				JspWriter out = pageContext.getOut();
+				out.println("<span style= 'font-family: "+font+"; font-size: "+size+";'>");
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			return super.doStartTag();
+		}
+		@Override
+		public int doEndTag() throws JspException {
+			System.out.println("Display.doEndTag()");
+			try {
+				JspWriter out = pageContext.getOut();
+				out.println("</span>")
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		return super.doEndTag();
+		}
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>RBI</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+			<div id="div1">
+					<h1>Reserve Bank of India</h1>
+					<p>     |    NOTICE TO CUSTOMERS - As per RBI guidelines all Re-KYC/Periodic KYC due customers are requested to contact your home/nearest branch along with latest KYC documents and update your due KYC, if you have already updated your latest KYC with bank, please ignore this communication</p>
+			</div>
+						
+</body>
+</html>

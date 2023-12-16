@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>RBI</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+			<div id="div1">
+<!--					<p>Reserve Bank of Indisas</p>-->
+<h1>Reserve Bank of India</h1>
+			</div>
+			<div class="box">
+				hello
+			</div>
+			
+</body>
+</html>

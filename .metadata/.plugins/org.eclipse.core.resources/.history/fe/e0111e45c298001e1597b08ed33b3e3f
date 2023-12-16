@@ -1,0 +1,12 @@
+package com.nt.service;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.nt.model.Customers;
+
+public interface IBankService {
+	public Connection getCon()throws Exception;
+	public List<Customers> getData()throws Exception;
+	public int saveCustomer(Customers customer)throws Exception;
+}

@@ -1,0 +1,38 @@
+package com.nt.service;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.nt.DAO.StudentDAO;
+
+public class StudentsDataImpl implements IStudentService{
+	private StudentDAO sDao;
+	@Override
+	public List<StudentsData> getData(String name) throws SQLException, ClassNotFoundException,Exception {
+		List<StudentsData> list = null;
+		try {
+			list = sDao.setData(name);
+				for(StudentsData s : list) {
+					String result = null;
+					if(s.getSpercentage() < 35) {
+						result = "Fail";
+					}else if (s.getSpercentage() > 35 && s.getSpercentage() < 60) {
+						result = "Pass With Second Divison";
+					}else if (s.getSpercentage() >= 60 && s.getSpercentage() <= 80) {
+						result = "Pass With First Divison";
+					}else {
+						result = "Pass With Distinction";
+					}
+					s.setSresult(result);
+				}
+		}catch (Exception e) {
+			System.out.println("Exception in StudentServiceImpl: "+e.getMessage());
+			throw e;
+		}
+			return list;
+	}
+	//Constructor
+	public StudentsDataImpl() {
+		System.out.println("StudentsDataImpl:: 0-param contructor");
+		sDao = new StudentDAO();
+	}
+}

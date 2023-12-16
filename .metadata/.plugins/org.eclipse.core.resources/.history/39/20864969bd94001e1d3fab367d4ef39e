@@ -1,0 +1,28 @@
+<taglib>
+	<tlib-version>2.0</tlib-version>
+	<jsp-version>3.0</jsp-version>
+	<short-name>fprime</short-name>
+	<uri>https://nareshit.com/org</uri>
+	<tag>
+		<name>find</name>
+		<tag-class>com.nt.prime.FindPrime</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>x</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
+		<name>dis</name>
+		<tag-class>com.nt.prime.Display</tag-class>
+		<body-content>jsp</body-content>
+		<attribute>
+			<name>size</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>font</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+</taglib>

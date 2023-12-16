@@ -1,0 +1,17 @@
+<%@ page isELIgnored="false" %>
+<h1 style="color: red;text-align: center">Checking Implicite Objs of EL</h1>
+<h3 style="color: green;text-align: center">Page Scope: ${pageScope.attr1}</h3>
+<h3 style="color: green;text-align: center">Request Scope: ${requestScope.attr2}</h3>
+<h3 style="color: green;text-align: center">Session Scope: ${sessionScope.attr3}</h3>
+<h3 style="color: green;text-align: center">Application Scope: ${applicationScope.attr4}</h3>
+<h1 style="color: red;text-align: center">Here we are getting context param values</h1>
+<h3 style="color: green;text-align: center">Context param value: ${initParam.attr}</h3>
+<h1 style="color: red;text-align: center">Here we are getting param values</h1>
+<h3 style="color: green;text-align: center">param value: ${param.uname}</h3>
+<h3 style="color: green;text-align: center">paramValues : ${paramValues.uname[0]},${paramValues.city[0]}</h3>
+<h1 style="color: red;text-align: center">Here we are getting Header values</h1>
+<h3 style="color: green;text-align: center">Header value: ${header['user-agent']}</h3>
+<h3 style="color: green;text-align: center">Headervalues : ${headerValues.accept[0]},${headerValues.accept[1]}</h3>
+<h1 style="color: red;text-align: center">Here we are getting Cookie values</h1>
+<h3 style="color: green;text-align: center">Cookie name: ${cookie.JSESSIONID.name}</h3>
+<h3 style="color: green;text-align: center">Cookie value: ${cookie.JSESSIONID.value}</h3>

@@ -1,0 +1,54 @@
+package com.nt.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+
+import com.nt.dao.BankDaoImpl;
+import com.nt.dao.IBankDao;
+import com.nt.model.Customers;
+import com.nt.service.BankServiceImpl;
+import com.nt.service.IBankService;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+@WebServlet("/signin")
+public class BankController extends HttpServlet{
+		private IBankService ser;
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			doGet(req, resp);
+		}
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+				PrintWriter pw = res.getWriter();
+				res.setContentType("text/html");
+				try {
+					ser = new BankServiceImpl();
+				String name = req.getParameter("name");
+				String username =req.getParameter("username");
+				System.out.println(username);
+				String password = req.getParameter("password");
+				Date dob = Date.valueOf(req.getParameter("dob"));
+				String type = req.getParameter("type");
+				String gender =req.getParameter("gender");
+				Long number = Long.parseLong(req.getParameter("number"));
+				String address = req.getParameter("address");
+				Double balance = Double.parseDouble(req.getParameter("balance"));
+				String identity = req.getParameter("identity_proof");
+				Customers c1 = new Customers(name, username, password, dob, type, gender, number, address, balance, identity);
+				//Calling of the methods
+				  int msg = ser.saveCustomer(c1); req.setAttribute("msg", msg);
+				  req.getRequestDispatcher("Signin.jsp").forward(req, res);
+				  // get Data method
+				}catch (Exception e) {
+					System.out.println("Exception in controller "+e.getMessage());
+				}
+				
+		}
+}

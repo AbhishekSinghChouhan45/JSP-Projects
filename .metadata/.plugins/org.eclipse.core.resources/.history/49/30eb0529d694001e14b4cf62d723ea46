@@ -1,0 +1,15 @@
+<%@page import="com.nt.model.Customers"%>
+<h1 style="color: red;text-align: center">Here we connecting to DB</h1>
+<jsp:useBean id="c" class="com.nt.dao.BankDaoImpl"></jsp:useBean>
+<%="The out put is "+c.getCon()!=null?"CE":"CNE"%>
+<%="The out put is "+c.getCon()==null%><br>
+<%="The out put is "%>
+ 
+ <%try{ c.getData().forEach(to->%> <%= to %><% System.out.println(to)); 
+ }catch(Exception e){System.out.println(e.getMessage());}%>
+
+<%-- 	<% for(Customers cc: c.getData()){%> --%>
+<%-- 			<%= cc+"\n"%> --%>
+<%-- 	<%}%> --%>
+
+<%-- 	<%c.getData().forEach(System.out::print);%> --%>

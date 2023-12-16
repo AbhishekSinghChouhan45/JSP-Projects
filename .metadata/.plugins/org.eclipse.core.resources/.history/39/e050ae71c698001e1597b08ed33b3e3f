@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<style>
+			body{
+				background-color: #333;				
+			}
+			.d1 p{
+				color: white;
+			}
+	</style>
+</head>
+<body>
+		<div class="d1">
+				<p>Reserve Bank of India</p><br>
+				<h1>asd</h1>
+				
+		</div>
+</body>
+</html>

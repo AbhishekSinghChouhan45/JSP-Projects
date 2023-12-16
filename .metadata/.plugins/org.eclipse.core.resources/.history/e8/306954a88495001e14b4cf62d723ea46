@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>RBI</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+			<div id="div1">
+					<p>Reserve Bank of Indisas</p>
+			</div>
+			
+</body>
+</html>

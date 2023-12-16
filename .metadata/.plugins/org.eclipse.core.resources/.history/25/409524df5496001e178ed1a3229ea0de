@@ -1,0 +1,142 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="ISO-8859-1">-->
+<!--<title>RBI</title>-->
+<!-- <link rel="stylesheet" href="style.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--			<div id="div1">-->
+<!--					<h1>Reserve Bank of India</h1>-->
+<!--					<marquee> |    NOTICE TO CUSTOMERS - As per RBI guidelines all Re-KYC/Periodic KYC due customers are requested to contact your home/nearest branch along with latest KYC documents and update your due KYC, if you have already updated your latest KYC with bank, please ignore this communication</marquee>-->
+<!--			</div>-->
+<!--			<div class="page">-->
+<!--				<p>	Login || Signup</p>-->
+<!--				<form>-->
+<!--					<input type="text" name="username" placeholder="Username" id="user"><br>-->
+<!--					<input type="password" name="password" placeholder="Password" id="user"><br>-->
+<!--					<input type="button" name="b1" placeholder="Login/Signup" id="b1"><br>-->
+<!--					<button type="submit">Login</button><br>-->
+<!--					<a id="forgot" href="forgot.html">Forgot</a>-->
+<!--					<a id="signin" href="signin.html">Signin</a>-->
+					
+<!--				</form>-->
+					
+				
+<!--			</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBI</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #div1 {
+            width: 50%;
+            border: 0px solid #333;
+            text-align: center;
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+            border-radius: 8px;
+            text-decoration: underline;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #div1 marquee {
+            width: 100%;
+            background-color: cadetblue;
+            color: white;
+            font-size: 20px;
+            position: relative;
+            padding: 10px;
+        }
+
+        .page {
+            margin-top: 5%;
+            margin-left: 20%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .page p {
+            font-size: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        form input {
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form button {
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: rgb(0, 0, 160);
+            color: white;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        #forgot {
+            float: left;
+            margin-top: 10px;
+            text-decoration: none;
+            color: gray;
+        }
+
+        #signin {
+            float: right;
+            margin-top: 10px;
+            text-decoration: none;
+            color: rgb(0, 0, 160);
+        }
+
+        form a {
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h1>Reserve Bank of India</h1>
+        <marquee> | NOTICE TO CUSTOMERS - As per RBI guidelines all Re-KYC/Periodic KYC due customers are requested to contact your home/nearest branch along with the latest KYC documents and update your due KYC. If you have already updated your latest KYC with the bank, please ignore this communication</marquee>
+    </div>
+
+    <div class="page">
+        <p>Login || Signup</p>
+        <form>
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+            <a id="forgot" href="forgot.html">Forgot</a>
+            <a id="signin" href="signin.html">Signin</a>
+        </form>
+    </div>
+</body>
+</html>

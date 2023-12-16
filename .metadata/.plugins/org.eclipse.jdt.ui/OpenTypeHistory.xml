@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=JSP-16MiniProjectUsingMVC-1/D:\/Tomcat 10.1\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpServlet.class[HttpServlet" modifiers="1057" timestamp="1685729518000"/>
+    <typeInfo handle="=JSP-17ProjectCompanyMailer/src\/main\/java&lt;com.nt.dao{IMailerDAO.java[IMailerDAO" modifiers="513" timestamp="1697623310433"/>
+    <typeInfo handle="=JSP-17ProjectCompanyMailer/C:\/eclipse\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\/jre\/lib\/jrt-fs.jar`java.desktop=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/&lt;java.awt.image(ImageProducer.class[ImageProducer" modifiers="1537" timestamp="1693459190000"/>
+    <typeInfo handle="=BankProject/src\/main\/java&lt;com.nt.dao{IBankDao.java[IBankDao" modifiers="513" timestamp="1702277801331"/>
+    <typeInfo handle="=BankProject/D:\/Tomcat 10.1\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpSession.class[HttpSession" modifiers="1537" timestamp="1685729518000"/>
+    <typeInfo handle="=BankProject/D:\/Tomcat 10.1\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpServletRequest.class[HttpServletRequest" modifiers="1537" timestamp="1685729518000"/>
+</typeInfoHistroy>

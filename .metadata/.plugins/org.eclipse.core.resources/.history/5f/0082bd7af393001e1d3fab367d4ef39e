@@ -1,0 +1,3 @@
+<%@ taglib= uri="http://tomcat.apache.org/example-taglibs" prefix="ctag" %>
+<h1 style="text-align: center;color: red">Here we are dealing with custome tag</h1>
+	<ctag:message/>

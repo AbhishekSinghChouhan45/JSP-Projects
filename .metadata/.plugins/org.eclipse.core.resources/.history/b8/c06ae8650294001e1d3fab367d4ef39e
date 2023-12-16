@@ -1,0 +1,3 @@
+<%@ taglib uri="https://nareshit.com/org" prefix="fprime"%>
+<h1 style="color: red;text-align: center">Here we are finding prime numbers</h1>
+<fprime:find/>

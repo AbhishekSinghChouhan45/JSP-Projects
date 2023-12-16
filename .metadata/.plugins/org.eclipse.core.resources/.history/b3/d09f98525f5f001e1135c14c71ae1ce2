@@ -1,0 +1,18 @@
+<%@ page import="java.sql.*" %>
+<h1 style="color: red; text-align: center">HTML to JSP page communication</h1>
+<%! private Connection con = null;
+		private PreparedStatement ps1,ps2;
+		// JspInit Method()
+		public void jspInit(){
+			//Servlet Config obj for getting connection values from xml
+			ServletConfig cg = getServletConfig();
+			String url = cg.getInitParameter("url");
+			String username = cg.getInitParameter("username");
+			String password = cg.getInitParameter("password");
+			con = DriverManager.getConnection(url,username,password);
+		}
+%>
+<% if(con !=null) %>
+<%= "Connection Established" %>
+<% else %>
+<%= "Connection Not Established" %>

@@ -1,0 +1,7 @@
+package com.nt.ctag;
+
+import jakarta.servlet.jsp.tagext.TagSupport;
+
+public class Message extends TagSupport {
+
+}

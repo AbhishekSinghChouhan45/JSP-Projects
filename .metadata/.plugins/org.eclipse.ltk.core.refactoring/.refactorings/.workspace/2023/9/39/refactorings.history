@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;JSP-04AccessingImplictObj&apos;" deleteContents="true" description="Delete resource &apos;JSP-04AccessingImplictObj&apos;" element1="/JSP-04AccessingImplictObj" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1695961832478"/>&#x0A;<refactoring comment="Rename resource &apos;IOC-05ExceptionHandlinginJSP&apos; to &apos;JSP-05ExceptionHandlinginJSP&apos;" description="Rename resource &apos;IOC-05ExceptionHandlinginJSP&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/IOC-05ExceptionHandlinginJSP" name="JSP-05ExceptionHandlinginJSP" stamp="1695965756670" updateReferences="true"/>
+</session>

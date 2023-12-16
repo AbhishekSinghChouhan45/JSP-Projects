@@ -1,0 +1,43 @@
+package com.nt.prime;
+
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.tagext.TagSupport;
+
+public class FindPrime extends TagSupport {
+	
+	@Override
+	public int doStartTag() throws JspException {
+		System.out.println("FindPrime.doStartTag()");
+		try {
+			JspWriter out = pageContext.getOut();
+			out.println("")
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return super.doStartTag();
+	}
+	@Override
+	public int doEndTag() throws JspException {
+		System.out.println("FindPrime.doEndTag()");
+		return EVAL_PAGE;
+	}
+	public int[] findPrimes(int a) throws Exception{
+			int ii =2;
+			int [] val = null;
+			for(int i=0;i<=a;++i) {
+				if(i==0 || i== 1) {
+					
+				}
+				if(i == ii) {
+					val[i] = i;
+				}
+				if(i % ii ==0) {
+					
+				}
+				ii++;
+				findPrimes(a);
+			}
+		return val;
+	}
+}

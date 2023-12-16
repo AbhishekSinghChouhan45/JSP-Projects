@@ -1,0 +1,11 @@
+	<h1 style="color: red;text-align: center">Here we are in Test1.jsp</h1>
+		<jsp:useBean id="st" class="com.nt.student.Student" scope="session"></jsp:useBean>
+		<jsp:setProperty property="Sno" name="st" value="101" />
+		<jsp:setProperty name="st" property="Sname" value="Raja" />
+		<jsp:setProperty name="st" property="Sadd" value="Chn" />
+		<jsp:setProperty name="st" property="m1" value="40" />
+		<jsp:setProperty name="st" property="m2" value="87" />
+		<jsp:setProperty name="st" property="m2" value="65" />
+		
+	<h1 style="color: Green;text-align: center">Properties Setted Successfully</h1>
+		

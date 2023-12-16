@@ -1,0 +1,226 @@
+package com.nt.dao;
+
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.Reader;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.List;
+
+import com.nt.model.Customers;
+
+import oracle.sql.TIMESTAMP;
+
+public class BankDaoImpl implements IBankDao {
+	private final String saveDate ="INSERT INTO RBIBANK(NAME,USERNAME,PASSWORD,DOB,TYPE,GENDER,PHONENUMBER,ADDRESS,BALANCE,IDENTITY,AGE,CREATIONDATE,LASTUPDATE) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	@Override
+	public Connection getCon() throws  Exception {
+		Class.forName("oracle.jdbc.driver.OracleDriver");	
+		try{
+				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","root");
+				if(con!=null) {
+					return con;
+				}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
+	@Override
+	public List<Customers> getData() throws Exception {
+		List<Customers> customers = new ArrayList<Customers>();
+			Class.forName("oracle.jdbc.driver.OracleDriver");	
+		try(Connection con = getCon();
+			  PreparedStatement ps = con.prepareStatement("SELECT * FROM BANK_DATA");
+			  ResultSet rs =ps.executeQuery();){
+			System.out.println("HERE "+con==null);
+			while(rs.next()!=false) {
+				Customers c = new Customers();
+				c.setCId(rs.getInt("CUSTOMERID"));
+				c.setCName(rs.getString("CUSTOMERNAME"));
+				c.setCAddress(rs.getString("CUSTOMERADDRESS"));
+				c.setCDob(rs.getDate("CUSTOMERDOB"));
+				c.setCNumber(rs.getLong("CUSTOMERNUMBER"));
+				c.setCType(rs.getString("CUSTOMERTYPE"));
+				c.setCBalance(rs.getDouble("CUSTOMERBALANCE"));
+				customers.add(c);
+			}
+		}catch (Exception e) {
+			System.out.println("E in GD "+e.getMessage());
+		}
+		System.out.println("BankDaoImpl.getData() "+customers.size());
+		return customers;
+	}
+
+	@Override
+	public String saveCustomer(Customers customer)throws Exception {
+		Class.forName("oracle.jdbc.driver.OracleDriver");	
+		try(Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","root");){
+				Date dob = customer.getCDob();
+				int age = LocalDate.now().getYear() - dob.toLocalDate().getYear();
+				LocalDateTime creationDate = LocalDateTime.now();
+				LocalDateTime lastUpdation = LocalDateTime.now();
+				String image = "C://Users//Jarvis//Desktop//indian-bollywood-actor-salman-khan-has-a-cup-of-coffee-during-a-break-from-shooting-an-action.jpeg";
+				InputStream ls = new FileInputStream(image);
+				byte [] photoData = new byte[ls.available()];
+				photoData = ls.readAllBytes();
+				try(PreparedStatement ps = con.prepareStatement(saveDate);){
+					ps.setString(1, customer.getCName());
+					ps.setString(2, customer.getCUsername());
+					ps.setString(3, customer.getCPassword());
+					ps.setDate(4, dob);
+					ps.setString(5, customer.getCType());
+					ps.setString(6, customer.getCGender());
+					ps.setLong(7, customer.getCNumber());
+					ps.setString(8, customer.getCAddress());
+					ps.setDouble(9, customer.getCBalance());
+					ps.setBytes(10, photoData);
+					ps.setInt(11, age);
+					ps.setTimestamp(12,Timestamp.valueOf(creationDate));
+					ps.setTimestamp(13,Timestamp.valueOf(lastUpdation));
+					int value = ps.executeUpdate();
+					if(value > 0)
+						return "Customer Details Registered Successfully";
+				}
+		}catch (Exception e) {
+			System.out.println("Exception in dao "+e.getMessage());
+			throw e;
+		} 
+		
+		return "Customer Details Registration Unsuccessfully";
+	}
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBI Registration</title>
+	<link rel="icon" href="RBI-Emblem-PNG.png" type="image/png">
+    <style>
+        body {
+            background-image: url('https://images.hindustantimes.com/img/2021/07/24/1600x900/RBI_1627088344086_1627088360876.jpg'); /* Add your background image URL */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            background-color: #f4f4f4;
+        }
+
+        #registration-form {
+            margin: 5% auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        #registration-form h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        #registration-form input {
+            font-size: 18px;
+            border: none;
+            border-bottom: 2px solid white;
+            background: transparent;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #registration-form button {
+            font-size: 18px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 60%;
+        }
+
+        #registration-form button:hover {
+            background-color: #00134d;
+        }
+
+        #registration-form a {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        #registration-form a:hover {
+            text-decoration: underline;
+            color: #4CAF50;
+        }
+        #registration-form select {
+    		font-size: 18px;
+            border: none;
+            border-bottom: 2px solid white;
+            background: transparent;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+	}
+	  #registration-form select option{
+		  background-color: #333;
+	  }
+    </style>
+</head>
+<body>
+
+<div id="registration-form">
+    <h2>RBI Registration</h2>
+    <form id="rform" method="post" action="bcontroller">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="date" name="dob" placeholder="DOB">
+        <select name="type" style="width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box;" >
+            <option value="saving">Saving</option>
+            <option value="investing">Investing</option>
+            <option value="personal">Personal</option>
+        </select>
+        <select name="gender" style="width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box;">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="tel" name="number" placeholder="Number">
+        <input type="text" name="address" placeholder="Address">
+        <input type="number" name="balance" placeholder="Opening balance">
+       <input type="file" name="identity_proof" placeholder="Identity Proof" accept="image/*" onchange="previewImage(event)">
+
+        <button type="submit">Register</button>
+        <a href="#" onclick="document.getElementById('rform').reset(); return false;">Reset</a>
+    </form>
+</div>
+		
+</body>
+</html>
+

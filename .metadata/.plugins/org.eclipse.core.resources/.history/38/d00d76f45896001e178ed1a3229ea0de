@@ -1,0 +1,98 @@
+*{
+	background-color: #f4f4f4;
+}
+#div1 h1{
+	 width: 30%;
+    height: 1cm;
+    border: 0px solid #333;
+    text-align: center;
+    font-size: 25px;
+/*    background-color: rgb(255, 255, 255);*/
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    text-decoration: underline;
+    margin-left: 500px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+#div1 marquee{
+   align-content: center;
+	width: 99%;
+	height: 1cm;
+	background-color: cadetblue;
+	color: white;
+	font-size: 30px;
+	position: absolute;
+}
+.page{
+	margin-top: 10%;
+	margin-left: 35%;
+	 background-color: #333;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     padding: 60px;
+     border-radius: 8px;
+     width: 300px;
+     text-align: center;
+}
+.page p{
+	font-size: 25px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 100%;
+	background-color: #333;
+	color: white;
+  	box-shadow:  0 0 10px rgb(255, 255, 255);
+
+}
+form{
+	background-color: #333;
+}
+form #user{
+	font-size: 25px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(192, 192, 192);
+	
+}
+form button{
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 10px;
+	margin-left: 80%;
+	background-color: #333;
+	border-style: hidden;
+	box-shadow:  0 0 10px rgb(255, 255, 255);
+	width: 60px;
+	color: white;	
+}
+#forgot{
+	margin-left: 2%;
+	float: left;
+	border: 2px;
+}
+#signin{
+	float: right;
+	
+}
+form a{
+	background-color: #333;
+	color: white;
+	margin-top: 5%;
+	font-size: larger;
+	border-style: hidden;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 600;
+/*	box-shadow:  0 0 10px rgb(255, 255, 255);*/
+	border-radius: 5px;
+	outline-color: aqua;
+}
+/*Signin css properties*/
+
+
+
+
+
+
+
+
+
+
+

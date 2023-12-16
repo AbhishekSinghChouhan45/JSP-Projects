@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>RBI</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+			<div id="div1">
+					<h1>Reserve Bank of India</h1>
+					<marquee> |    NOTICE TO CUSTOMERS - As per RBI guidelines all Re-KYC/Periodic KYC due customers are requested to contact your home/nearest branch along with latest KYC documents and update your due KYC, if you have already updated your latest KYC with bank, please ignore this communication</marquee>
+			</div>
+			<div class="page">
+				<p>	Login || Signup</p>
+				<form>
+					<input type="text" name="username" placeholder="Username"><br>
+					<input type="password" name="password" placeholder="Password">
+					<input type="button" name="b1" placeholder="Login/Signup">
+					<a id="login" href="fo"></a>
+				</form>
+					
+				
+			</div>
+</body>
+</html>

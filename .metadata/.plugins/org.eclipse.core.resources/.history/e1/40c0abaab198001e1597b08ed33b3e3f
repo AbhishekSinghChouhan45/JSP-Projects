@@ -1,0 +1,110 @@
+package com.nt.dao;
+
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.Reader;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.List;
+
+import com.nt.model.Customers;
+
+import oracle.sql.TIMESTAMP;
+
+public class BankDaoImpl implements IBankDao {
+	private final String saveDate ="INSERT INTO RBIBANK(NAME,USERNAME,PASSWORD,DOB,TYPE,GENDER,PHONENUMBER,ADDRESS,BALANCE,IDENTITY,AGE,CREATIONDATE,LASTUPDATE) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	@Override
+	public Connection getCon() throws  Exception {
+		Class.forName("oracle.jdbc.driver.OracleDriver");	
+		try{
+				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","root");
+				if(con!=null) {
+					return con;
+				}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
+	@Override
+	public List<Customers> getData() throws Exception {
+		List<Customers> customers = new ArrayList<Customers>();
+			Class.forName("oracle.jdbc.driver.OracleDriver");	
+		try(Connection con = getCon();
+			  PreparedStatement ps = con.prepareStatement("SELECT * FROM BANK_DATA");
+			  ResultSet rs =ps.executeQuery();){
+			System.out.println("HERE "+con==null);
+			while(rs.next()!=false) {
+				Customers c = new Customers();
+				c.setCId(rs.getInt("CUSTOMERID"));
+				c.setCName(rs.getString("CUSTOMERNAME"));
+				c.setCAddress(rs.getString("CUSTOMERADDRESS"));
+				c.setCDob(rs.getDate("CUSTOMERDOB"));
+				c.setCNumber(rs.getLong("CUSTOMERNUMBER"));
+				c.setCType(rs.getString("CUSTOMERTYPE"));
+				c.setCBalance(rs.getDouble("CUSTOMERBALANCE"));
+				customers.add(c);
+			}
+		}catch (Exception e) {
+			System.out.println("E in GD "+e.getMessage());
+		}
+		System.out.println("BankDaoImpl.getData() "+customers.size());
+		return customers;
+	}
+
+	@Override
+	public int saveCustomer(Customers customer)throws Exception {
+		Class.forName("oracle.jdbc.driver.OracleDriver");	
+		try(Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","root");){
+				Date dob = customer.getCDob();
+				int age = LocalDate.now().getYear() - dob.toLocalDate().getYear();
+				LocalDateTime creationDate = LocalDateTime.now();
+				LocalDateTime lastUpdation = LocalDateTime.now();
+				/*
+				 * String image =
+				 * "C://Users//Jarvis//Desktop//indian-bollywood-actor-salman-khan-has-a-cup-of-coffee-during-a-break-from-shooting-an-action.jpeg";
+				 */
+				InputStream ls = new FileInputStream(customer.getCIdentity());
+				byte [] photoData = new byte[ls.available()];
+				photoData = ls.readAllBytes();
+				try(PreparedStatement ps = con.prepareStatement(saveDate);){
+					ps.setString(1, customer.getCName());
+					ps.setString(2, customer.getCUsername());
+					ps.setString(3, customer.getCPassword());
+					ps.setDate(4, dob);
+					ps.setString(5, customer.getCType());
+					ps.setString(6, customer.getCGender());
+					ps.setLong(7, customer.getCNumber());
+					ps.setString(8, customer.getCAddress());
+					ps.setDouble(9, customer.getCBalance());
+					ps.setBytes(10, photoData);
+					ps.setInt(11, age);
+					ps.setTimestamp(12,Timestamp.valueOf(creationDate));
+					ps.setTimestamp(13,Timestamp.valueOf(lastUpdation));
+//					int value = ps.executeUpdate();
+					int value =1;
+					if(value > 0)
+						return 1;
+				}
+		}catch (Exception e) {
+			System.out.println("Exception in dao "+e.getMessage());
+			throw e;
+		} 
+		
+		return 0;
+	}
+
+}
+
